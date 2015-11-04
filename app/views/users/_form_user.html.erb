@@ -1,0 +1,36 @@
+<%= form_for @user, :html => {:class => "ui form error"} do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation" class="ui error message">
+      <h3>Uh oh! Please address the following to save/update your account:</h3>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field required">
+    <%= f.label :fname, "First Name" %>
+    <%= f.text_field :fname %>
+  </div>
+  <div class="field required">
+    <%= f.label :lname, "Last Name" %>
+    <%= f.text_field :lname %>
+  </div>
+  <div class="field required">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field required">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field required">
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create Account", class: "ui fluid green button" %>
+  </div>
+<% end %>
