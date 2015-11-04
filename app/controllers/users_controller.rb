@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to profile_path
+      flash[:success] = "Registration successful! Welcome to App.ly!"
+      redirect_to @user
     else
       render 'new'
     end

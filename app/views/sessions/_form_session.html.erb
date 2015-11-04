@@ -1,0 +1,15 @@
+<%= form_for :session, url: login_path, :html => {:class => "ui form error"} do |f| %>
+  <div class="field">
+    <%= f.label :email, "Email" %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Log in", class: "ui fluid green button" %>
+  </div>
+
+  <p><strong>New user?</strong> <%= link_to "Sign up now!", signup_path %></p>
+<% end %>

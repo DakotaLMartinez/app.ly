@@ -4,7 +4,13 @@
       <h1 class="col-sm-12 col-md-4"><i class="fa fa-paper-plane"></i><%= link_to "App.ly", root_path, id: "logo" %></h1>
       <nav class="col-sm-12 col-md-8">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Log in", '#' %></li>
+          <% if logged_in? %>
+            <li>Hello, <%= current_user.fname %></li>
+            <li><%= link_to 'Logout', login_path, method: :delete, data: {confirm: 'Are you sure?'} %></li>
+            <% else %>
+              <li><%= link_to 'Login', login_path %></li>
+            <% end %>
+          </li>
         </ul>
       </nav>
     </div>
