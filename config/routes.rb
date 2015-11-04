@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+<<<<<<< Updated upstream
   root 'static_pages#home'
+=======
+  get 'signup' => 'users#new'
+  resources :users, except: [:index, :edit, :update, :destroy]
+>>>>>>> Stashed changes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
