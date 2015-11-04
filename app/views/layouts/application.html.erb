@@ -8,11 +8,19 @@
   <%= render 'layouts/shim' %>
 </head>
 <body>
+  <div class="container-fluid">
+    <div class="container">
+      <%= render 'layouts/header' %>
+    </div>
+  </div>
   <div class="container">
-    <%= render 'layouts/header' %>
     <%= yield %>
-    <%= render 'layouts/footer' %>
-    <%= debug(params) if Rails.env.development? %>
+  </div>
+  <div class="container-fluid">
+    <div class="container">
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
   </div>
 </body>
 </html>
