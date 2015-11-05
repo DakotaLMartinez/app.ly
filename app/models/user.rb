@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :jobs
   before_save { email.downcase! }
   before_save { fname.capitalize! }
   before_save { lname.capitalize! }
