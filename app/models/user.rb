@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :jobs
+  has_many :jobs, dependent: :destroy
   before_save { email.downcase! }
   before_save { fname.capitalize! }
   before_save { lname.capitalize! }
