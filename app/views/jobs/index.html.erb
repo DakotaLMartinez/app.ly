@@ -8,9 +8,9 @@
       <div class="card">
         <div class="content">
           <div class="ui icon buttons right floated ">
-            <%= link_to raw('<button class="ui button"><i class="fa fa-eye"></i></button>'), user_job_path(current_user, job) %>
-            <%= link_to raw('<button class="ui button"><i class="fa fa-edit"></i></button>'), edit_user_job_path(current_user, job) %>
-            <%= link_to raw('<button class="ui button"><i class="fa fa-remove"></i></button>'), user_job_path(current_user, job), method: :delete, data: { confirm: 'Are you sure?' }%>
+            <%= link_to raw('<button class="ui button action"><i class="fa fa-eye"></i></button>'), user_job_path(current_user, job) %>
+            <%= link_to raw('<button class="ui button action"><i class="fa fa-edit"></i></button>'), edit_user_job_path(current_user, job) %>
+            <%= link_to raw('<button class="ui button action"><i class="fa fa-remove"></i></button>'), user_job_path(current_user, job), method: :delete, data: { confirm: 'Are you sure?' }%>
           </div>
           <div class="header">
             <%= job.company_name  %>

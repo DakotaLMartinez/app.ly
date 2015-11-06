@@ -42,16 +42,22 @@ footer {
 }
 
 .ui.icon.buttons .button, .ui.icon.button {
-  padding: 8px;
+  padding: 6px;
+  margin-left: 2px;
 }
 
 .ui.button {
   padding: 10px;
 }
 
-#sign-up {
+// #sign-up {
+//   background-color: #085;
+//   color: #eee;
+// }
+
+.ui.green.buttons .button, .ui.green.button {
   background-color: #085;
-  color: #eee;
+  color: #fff;
 }
 
 #add-note {
