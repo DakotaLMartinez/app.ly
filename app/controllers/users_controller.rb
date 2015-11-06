@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Registration successful! Welcome to App.ly!"
       log_in @user
-      redirect_to @user
+      redirect_to user_path @user
     else
       render 'new'
     end

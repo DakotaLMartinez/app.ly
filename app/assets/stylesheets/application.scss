@@ -19,9 +19,14 @@
 @import "font-awesome";
 
 body {
-  padding-top: 3rem;
+  padding-top: 6rem;
 }
 
 header h1, header h1 a {
   color: #fff;
+}
+
+header h1 a:hover {
+  color: white;
+  text-decoration: none;
 }

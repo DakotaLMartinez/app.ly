@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'login' => 'sessions#destroy'
-  resources :users, except: [:index, :edit, :update, :destroy]
+
+  resources :users, except: [:index, :new] do
+    resources :jobs do
+      resources :notes
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
