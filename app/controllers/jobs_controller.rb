@@ -1,24 +1,32 @@
 class JobsController < ApplicationController
+  def index
+    @user = current_user
+    @jobs = @user.jobs
+  end
+
   def new
-    @job = Job.new
+    @user = current_user
+    @job = @user.jobs.build
   end
 
   def create
-    @job = current_user.jobs.build(job_params)
+    @user = current_user
+    @job = @user.jobs.build(job_params)
     if @job.save
       flash[:success] = "Job record created!"
-      redirect_to root_url
+      redirect_to user_jobs_path @user
     else
-      render 'static_pages/home'
+      render 'new'
     end
   end
 
   def show
-    @job = Job.find(params[:id])
+    @user = current_user
+    @job = @user.jobs.find(params[:id])
   end
 
   def edit
-    #code
+    @job = Job.find(params[:id])
   end
 
   private

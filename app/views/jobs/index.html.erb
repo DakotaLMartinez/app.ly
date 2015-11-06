@@ -1,0 +1,25 @@
+<h1>Job Dashboard</h1>
+<% @jobs.each do |job| %>
+  <div class="ui cards">
+    <div class="card">
+      <div class="content">
+        <img class="right floated mini ui image" src="/images/jobs/company/logo.jpg">
+        <div class="header">
+          <%= job.company_name  %>
+        </div>
+        <div class="meta">
+          <%= job.role %>
+        </div>
+        <div class="description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="ui two buttons">
+          <div class="ui button basic green"><i class="fa fa-edit"></i></div>
+          <div class="ui basic red button">Delete</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

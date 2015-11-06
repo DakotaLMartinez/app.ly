@@ -1,2 +1,11 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+<h1>Job Details</h1>
+
+<%= @job.company_name %>
+<% @job.notes.each do |note| %>
+<%= note.content  %>
+<%end%>
+
+<%= form_for [current_user,@job, Note.new] do |f| %>
+  <%= f.text_area :content, class: "form-control" %>
+
+<% end %>

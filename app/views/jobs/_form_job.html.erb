@@ -1,6 +1,6 @@
 <% provide(:title, "Create Job Record") %>
-<%= form_for @job, :html => {:class => "ui form error"} do |f| %>
-  <div class="field">
+<%= form_for [@user,@job], :html => {:class => "ui form error"} do |f| %>
+  <div class="field required">
     <%= f.label :company_name %>
     <%= f.text_field :company_name %>
   </div>
@@ -16,25 +16,29 @@
     <%= f.label :source %>
     <%= f.text_field :source %>
   </div>
-  <div class="field">
-    <%= f.label :contact_name %>
-    <%= f.text_field :contact_name %>
+  <div class="fields">
+    <div class="field">
+      <%= f.label :contact_name %>
+      <%= f.text_field :contact_name %>
+    </div>
+    <div class="field">
+      <%= f.label :contact_email %>
+      <%= f.text_field :contact_email %>
+    </div>
+    <div class="field">
+      <%= f.label :contact_phone %>
+      <%= f.text_field :contact_phone %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :contact_email %>
-    <%= f.text_field :contact_email %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_phone %>
-    <%= f.text_field :contact_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :applied %>
-    <%= f.check_box :applied %>
-  </div>
-  <div class="field">
-    <%= f.label :date_applied %>
-    <%= f.date_field :date_applied %>
+  <div class="fields">
+    <div class="field">
+      <%= f.label :applied %>
+      <%= f.check_box :applied %>
+    </div>
+    <div class="field">
+      <%= f.label :date_applied %>
+      <%= f.date_field :date_applied %>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit "Create Job Record", class: "ui fluid green button" %>
