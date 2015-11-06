@@ -1,14 +1,30 @@
 <h1 class="ui dividing header">Job Details</h1>
 <h2><%= @job.company_name %></h2>
-<ul>
-  <li>
-    <% @job.notes.each do |note| %>
-    <%= note.content  %>
-    <%end%>
-  </li>
+<ul class="list-unstyled">
+  <li><strong>Location:</strong> <%= @job.location %></li>
+  <li><strong>Role:</strong> <%= @job.role %></li>
+  <li><strong>Source:</strong> <%= link_to "Original Source", @job.source, :target => "_blank" %></li>
+  <li><strong>Contact:</strong> <%= @job.contact_name %></li>
+  <li><strong>Email:</strong> <%= @job.contact_email %></li>
+  <li><strong>Phone:</strong> <%= @job.contact_phone %></li>
+  <li><strong>Applied:</strong> <%= @applied %></li>
+  <li><strong>Date Applied:</strong> <%= @job.date_applied %></li>
 </ul>
 
-<%= form_for [current_user,@job, Note.new] do |f| %>
-  <%= f.text_area :content, class: "form-control" %>
-
+<ul class="list-unstyled">
+  <% if @job.notes %>
+  <li>
+    <% @job.notes.each do |note| %>
+      <%= note.content %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+<div class="row">
+<%= form_for [current_user,@job, Note.new], :html => {:class => "ui form error col-md-4"} do |f| %>
+  <div class="field">
+    <%= f.label :content, "Add Note" %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
 <% end %>
+</div>

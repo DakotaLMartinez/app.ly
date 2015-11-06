@@ -23,6 +23,10 @@ class JobsController < ApplicationController
   def show
     @user = current_user
     @job = @user.jobs.find(params[:id])
+    @applied = 'No'
+    if @job.applied
+      @applied = 'Yes'
+    end
   end
 
   def edit

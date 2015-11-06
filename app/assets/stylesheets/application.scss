@@ -22,11 +22,58 @@ body {
   padding-top: 6rem;
 }
 
-header h1, header h1 a {
+#logo {
   color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-header h1 a:hover {
+#logo:hover {
   color: white;
   text-decoration: none;
+}
+
+a#logo.navbar-brand {
+  padding: 10px 15px;
+}
+
+footer {
+  margin-top: 50px;
+}
+
+.ui.icon.buttons .button, .ui.icon.button {
+  padding: 8px;
+}
+
+.ui.button {
+  padding: 10px;
+}
+
+#sign-up {
+  background-color: #085;
+  color: #eee;
+}
+
+#add-note {
+  background-color: #f6f6f6;
+}
+
+.row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#document {
+    background-color: #085;
+    color: #eee;
+    padding: 20px;
+    display: inline-block;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 100px;
+    box-shadow: 0px 0px 1px #333;
+}
+
+h2 span.tagline-em {
+  color: #085;
 }
