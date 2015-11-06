@@ -1,6 +1,9 @@
 <% provide :title, "Home" %>
-<div class="jumbotron">
-  <div class="container">
-    <h2 class="ui header text-center">Keep track of your job search progress with ease!</h2>
-  </div>
+<div class="jumbotron text-center">
+  <i id="document" class="fa fa-file-text-o fa-4x"></i>
+  <h1 class="ui header">Sayonara spreadsheets.</h1>
+  <h2 class="ui header">The
+    <strong><span class="tagline-em">better</span></strong>
+    way to document your job search.</h2>
+  <%= link_to raw('<p id="sign-up" class="ui button large">Sign Up</p>'), signup_path %>
 </div>

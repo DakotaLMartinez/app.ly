@@ -1,35 +1,38 @@
-<h1>Job Dashboard</h1>
-<ul>
-<% @jobs.each do |job| %>
-  <li class="ui link cards">
-    <div class="card">
-      <div class="content">
-        <%= link_to raw('<i class="right floated fa fa-remove fa-lg"></i>'), user_job_path(current_user, job), method: :delete, data: { confirm: 'Are you sure?' }%>
-        <%= link_to raw('<i class="right floated fa fa-edit fa-lg"></i>'), edit_user_job_path(current_user, job) %>
-        <div class="header">
-          <%= job.company_name  %>
+<h2 class="ui dividing header">Job Dashboard</h2>
+<%= link_to raw('<button class="ui button"><i class="fa fa-plus fa-lg"></i></button>'), new_user_job_path(current_user, @job) %>
+<% @jobs.in_groups_of(4, false).each do |group| %>
+<div class="row">
+  <% group.each do |job| %>
+  <div class="col-sm-12 col-md-3">
+    <div class="ui link cards">
+      <div class="card">
+        <div class="content">
+          <div class="ui icon buttons right floated ">
+            <%= link_to raw('<button class="ui button"><i class="fa fa-eye"></i></button>'), user_job_path(current_user, job) %>
+            <%= link_to raw('<button class="ui button"><i class="fa fa-edit"></i></button>'), edit_user_job_path(current_user, job) %>
+            <%= link_to raw('<button class="ui button"><i class="fa fa-remove"></i></button>'), user_job_path(current_user, job), method: :delete, data: { confirm: 'Are you sure?' }%>
+          </div>
+          <div class="header">
+            <%= job.company_name  %>
+          </div>
+          <div class="meta">
+            <%= job.role %>
+          </div>
+          <% if job.source %>
+          <div class="description">
+            <%= link_to "Original Source", job.source, :target => "_blank" %>
+          </div>
+          <% end %>
         </div>
-        <div class="meta">
-          <%= job.role %>
-        </div>
-        <div class="description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </div>
-      </div>
-      <div class="extra content">
-        <!--div class="ui two buttons">
-          <div class="ui button basic green"><i class="fa fa-edit"></i></div>
-          <div class="ui basic red button"><i class="fa fa-remove"></i></div>
-        </div-->
-        <div class="ui small transparent left icon input">
-          <i class="write icon"></i>
-          <input type="text_area" placeholder="Add Note ...">
+        <div id="add-note" class="extra content">
+          <div class="ui small transparent left icon input">
+            <i class="write icon"></i>
+            <input placeholder="Add Note ..." type="text_area">
+          </div>
         </div>
       </div>
     </div>
-  </li>
+  </div>
+  <% end %>
+</div>
 <% end %>
-</ul>
-<%# link_to raw('<button class="btn btn-sm btn-primary">Show</button>'), product %>
-<%# link_to raw('<button class="btn btn-sm btn-primary">Edit</button>'), edit_product_path(product) %>
-<%# link_to raw('<button class="btn btn-sm btn-danger">Delete</button>'), product, method: :delete, data: { confirm: 'Are you sure?' } %>
