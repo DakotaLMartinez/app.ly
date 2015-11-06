@@ -1,7 +1,13 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <div class="row">
-      <h1 class="col-sm-12 col-md-4"><i class="fa fa-paper-plane"></i><%= link_to "App.ly", root_path, id: "logo" %></h1>
+      <h1 class="col-sm-12 col-md-4"><i class="fa fa-paper-plane"></i>
+        <% if !logged_in? %>
+          <%= link_to "App.ly", root_path, id: "logo" %>
+          <% else %>
+          <%= link_to "App.ly", user_jobs_path(current_user), id: "logo" %>
+          <% end %>
+        </h1>
       <nav class="col-sm-12 col-md-8">
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
@@ -10,7 +16,6 @@
             <% else %>
               <li><%= link_to 'Login', login_path %></li>
             <% end %>
-          </li>
         </ul>
       </nav>
     </div>

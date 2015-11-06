@@ -1,6 +1,6 @@
 class Job < ActiveRecord::Base
   belongs_to :user
+  has_many :notes, dependent: :destroy
   validates :company_name, :presence => true
-  has_many :notes
-  #default_scope -> { order(created_at: :desc) }
+  default_scope -> { order(updated_at: :asc) }
 end

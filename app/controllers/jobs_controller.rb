@@ -26,7 +26,26 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @job = Job.find(params[:id])
+    @user = current_user
+    @job = @user.jobs.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @job = @user.jobs.find(params[:id])
+    if @job.update_attributes(job_params)
+      flash[:success] = "Job record updated!"
+      redirect_to user_jobs_path @user
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @user = current_user
+    @job = @user.jobs.find(params[:id]).destroy
+    flash[:success] = "Job record successfully destroyed."
+    redirect_to user_jobs_path @user
   end
 
   private

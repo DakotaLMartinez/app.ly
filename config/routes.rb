@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :new] do
     resources :jobs do
       resources :notes
-      
     end
   end
 

@@ -1,9 +1,12 @@
-<h1>Job Details</h1>
-
-<%= @job.company_name %>
-<% @job.notes.each do |note| %>
-<%= note.content  %>
-<%end%>
+<h1 class="ui dividing header">Job Details</h1>
+<h2><%= @job.company_name %></h2>
+<ul>
+  <li>
+    <% @job.notes.each do |note| %>
+    <%= note.content  %>
+    <%end%>
+  </li>
+</ul>
 
 <%= form_for [current_user,@job, Note.new] do |f| %>
   <%= f.text_area :content, class: "form-control" %>

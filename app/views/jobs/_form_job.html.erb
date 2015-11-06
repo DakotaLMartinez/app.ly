@@ -1,5 +1,5 @@
 <% provide(:title, "Create Job Record") %>
-<%= form_for [@user,@job], :html => {:class => "ui form error"} do |f| %>
+<%= form_for [@user, @job], :html => {:class => "ui form error"} do |f| %>
   <div class="field required">
     <%= f.label :company_name %>
     <%= f.text_field :company_name %>
@@ -41,6 +41,6 @@
     </div>
   </div>
   <div class="actions">
-    <%= f.submit "Create Job Record", class: "ui fluid green button" %>
+    <%= f.submit "Save Job Record", class: "ui fluid green button" %>
   </div>
 <% end %>

@@ -1,9 +1,11 @@
 <h1>Job Dashboard</h1>
+<ul>
 <% @jobs.each do |job| %>
-  <div class="ui cards">
+  <li class="ui link cards">
     <div class="card">
       <div class="content">
-        <img class="right floated mini ui image" src="/images/jobs/company/logo.jpg">
+        <%= link_to raw('<i class="right floated fa fa-remove fa-lg"></i>'), user_job_path(current_user, job), method: :delete, data: { confirm: 'Are you sure?' }%>
+        <%= link_to raw('<i class="right floated fa fa-edit fa-lg"></i>'), edit_user_job_path(current_user, job) %>
         <div class="header">
           <%= job.company_name  %>
         </div>
@@ -15,11 +17,19 @@
         </div>
       </div>
       <div class="extra content">
-        <div class="ui two buttons">
+        <!--div class="ui two buttons">
           <div class="ui button basic green"><i class="fa fa-edit"></i></div>
-          <div class="ui basic red button">Delete</div>
+          <div class="ui basic red button"><i class="fa fa-remove"></i></div>
+        </div-->
+        <div class="ui small transparent left icon input">
+          <i class="write icon"></i>
+          <input type="text_area" placeholder="Add Note ...">
         </div>
       </div>
     </div>
-  </div>
+  </li>
 <% end %>
+</ul>
+<%# link_to raw('<button class="btn btn-sm btn-primary">Show</button>'), product %>
+<%# link_to raw('<button class="btn btn-sm btn-primary">Edit</button>'), edit_product_path(product) %>
+<%# link_to raw('<button class="btn btn-sm btn-danger">Delete</button>'), product, method: :delete, data: { confirm: 'Are you sure?' } %>
